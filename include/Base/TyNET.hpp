@@ -17,4 +17,16 @@
 #ifndef TyNET_HPP
 #define TyNET_HPP
 
+//create an instance of the TyNET class
+class TyNET {
+public:
+    TyNET();
+    ~TyNET();
+
+private:
+
+};
+
+
+
 #endif

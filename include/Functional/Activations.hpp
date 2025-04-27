@@ -9,7 +9,7 @@
 // X -> 'dynamic size' set at runtime
 // d -> double precision floats
 
-class ForwardActivations
+class ForwardActivations : public TyNET
 {
 public:
     // Activation function for Eigen::VectorXd inputs
@@ -20,7 +20,6 @@ public:
 
 private:
 };
-#endif
 
 class BackwardActivations
 {
@@ -34,3 +33,5 @@ public:
 private:
     Eigen::MatrixXd jacobian(const Eigen::VectorXd &x); // Jacobian matrix for softmaxDerivative
 };
+
+#endif
