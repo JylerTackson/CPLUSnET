@@ -16,21 +16,21 @@
 //------------------------------------------------------------------------
 
 // Sigmoid activation function
-Eigen::VectorXd sigmoidActivation(const Eigen::VectorXd &x)
+Eigen::VectorXd ForwardActivations::sigmoidActivation(const Eigen::VectorXd &x)
 {
     // sigmoid function: 1 / (1 + exp(-x))
     return 1.0 / (1.0 + (-x).array().exp());
 }
 
 // ReLU activation function
-Eigen::VectorXd reluActivation(const Eigen::VectorXd &x)
+Eigen::VectorXd ForwardActivations::reluActivation(const Eigen::VectorXd &x)
 {
     // ReLU function: max[0, x]
     return x.array().max(0);
 }
 
 // Tanh activation function
-Eigen::VectorXd tanhActivation(const Eigen::VectorXd &x)
+Eigen::VectorXd ForwardActivations::tanhActivation(const Eigen::VectorXd &x)
 {
     // tanh function: (exp(x) - exp(-x)) / (exp(x) + exp(-x))
     // Use Eigen's built-in tanh function for better performance
@@ -38,7 +38,7 @@ Eigen::VectorXd tanhActivation(const Eigen::VectorXd &x)
 }
 
 // Softmax activation function
-Eigen::VectorXd softmaxActivation(const Eigen::VectorXd &x)
+Eigen::VectorXd ForwardActivations::softmaxActivation(const Eigen::VectorXd &x)
 {
     // Softmax function: exp(x) / sum(exp(x))
     Eigen::VectorXd exp_x = x.array().exp();
@@ -57,7 +57,7 @@ Eigen::VectorXd sigmoidDerivative(const Eigen::VectorXd &x)
 }
 
 // Derivative of the ReLU function
-Eigen::VectorXd reluDerivative(const Eigen::VectorXd &x)
+Eigen::VectorXd BackwardActivations::reluDerivative(const Eigen::VectorXd &x)
 {
     // Derivative of ReLU: 1 if x > 0, else 0
     // Cast to Array to perform element wise comparison and casting to double
@@ -65,7 +65,7 @@ Eigen::VectorXd reluDerivative(const Eigen::VectorXd &x)
 }
 
 // Derivative of the Tanh function
-Eigen::VectorXd tanhDerivative(const Eigen::VectorXd &x)
+Eigen::VectorXd BackwardActivations::tanhDerivative(const Eigen::VectorXd &x)
 {
     // Derivative of tanh: 1 - tanh^2(x)
     // Use Eigen's built-in tanh function for better performance
@@ -73,14 +73,14 @@ Eigen::VectorXd tanhDerivative(const Eigen::VectorXd &x)
 }
 
 // Derivative of the Softmax function
-Eigen::VectorXd softmaxDerivative(const Eigen::VectorXd &x)
+Eigen::VectorXd BackwardActivations::softmaxDerivative(const Eigen::VectorXd &x)
 {
     // Derivative of softmax: softmax(x) * (1 - softmax(x))
     // This is a bit more complex, as it involves the Jacobian matrix of the softmax function
 }
 
 // Jacobian matrix for softmaxDerivative
-Eigen::MatrixXd jacobian(const Eigen::VectorXd &x)
+Eigen::MatrixXd BackwardActivations::jacobian(const Eigen::VectorXd &x)
 {
     // Create a diagonal matrix with the softmax values
 }

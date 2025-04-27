@@ -16,6 +16,9 @@
 
 #ifndef TyNET_HPP
 #define TyNET_HPP
+#include <Eigen/Dense>
+#include <iostream>
+
 
 //create an instance of the TyNET class
 class TyNET {

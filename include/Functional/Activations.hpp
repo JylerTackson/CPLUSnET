@@ -4,6 +4,7 @@
 #include <cmath>
 #include <iostream>
 #include <Eigen/Dense>
+#include "./Base/TyNET.hpp"
 
 // VectorXd:
 // X -> 'dynamic size' set at runtime
