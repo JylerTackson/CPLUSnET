@@ -2,7 +2,6 @@
 #define BACKPROP_HPP
 #include "./Base/TyNET.hpp"
 
-
 class BackProp : public TyNET
 {
 public:
@@ -10,9 +9,6 @@ public:
     ~BackProp();
 
 private:
-
 };
-
-
 
 #endif

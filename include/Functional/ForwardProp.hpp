@@ -9,7 +9,6 @@ public:
     ~ForwardProp();
 
 private:
-
 };
 
 #endif
