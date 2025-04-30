@@ -20,6 +20,9 @@ public:
     void create_network(const std::vector<LinearLayer> &layers);
 
 private:
+
+    // Class Attributes:
+    
 };
 
 #endif
