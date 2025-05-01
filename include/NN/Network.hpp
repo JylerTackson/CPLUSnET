@@ -13,16 +13,27 @@
 class Network : public TyNET
 {
 public:
-    Network();
+    Network(const std::vector<LinearLayer> &layers);
     ~Network();
 
-    // Function to create the network from the layers using a vector
+    // Function to create the network from the layers using an array
+
     void create_network(const std::vector<LinearLayer> &layers);
 
 private:
-
     // Class Attributes:
-    
+    int network_Layers;              // Size of the network
+    std::vector<LinearLayer> layers; // Array of layers in the network
+
+    // Information available in Layer Class:
+    //  - input_size
+    //  - output_size
+    //  - activationFunction
+    //  - activationDerivative
+    //  - weightsMatrix
+    //  - biases
+    //  - pre_Activated values of OUTPUT layer
+    //  - activated values of OUTPUT layer
 };
 
 #endif
