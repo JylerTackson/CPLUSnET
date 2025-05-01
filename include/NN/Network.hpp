@@ -15,16 +15,16 @@ class Network : public TyNET
 public:
     // Constructor to initialize the network from a vector of layers
     // Simply initialize the layers vector, layers size, learning rate, and momentum.
-    Network(const std::vector<LinearLayer> &layers, double learning_rate, double momentum)
+    Network(const std::vector<LinearLayer> &layers, double learning_rate, double momentum);
 
-        // Function to train the network
-        // Utilizes the forward and backward methods to train the network
-        void train(const Eigen::VectorXd &input,
-                   const Eigen::VectorXd &target,
-                   double learning_rate,
-                   double momentum,
-                   int epochs,
-                   int batch_size);
+    // Function to train the network
+    // Utilizes the forward and backward methods to train the network
+    void train(const Eigen::VectorXd &input,
+               const Eigen::VectorXd &target,
+               double learning_rate,
+               double momentum,
+               int epochs,
+               int batch_size);
 
     // Function that uses the trained network to predict an output from an input
     // Input is a vector of size input_size
