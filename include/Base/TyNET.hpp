@@ -1,4 +1,4 @@
-//
+// Please review ref.md for more information.
 
 #ifndef TyNET_HPP
 #define TyNET_HPP

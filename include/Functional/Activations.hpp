@@ -1,13 +1,12 @@
-//Pytorch is built with C++14 standard version.
-//PyTorch uses Python as its primary interface, but it is built on top of C++ for performance reasons.
-//The core libraries and many of the underlying operations are implemented in C++ for efficiency.
-//The Python interface provides a more user-friendly way to interact with the library, while the C++ backend handles the heavy lifting.
+// Please review ref.md for more information.
 
-//PyTorch Activation Module:
-//https://github.com/pytorch/pytorch/blob/main/torch/nn/modules/activation.py
+// PyTorch Activation Module:
+// https://github.com/pytorch/pytorch/blob/main/torch/nn/modules/activation.py
 
-//PyTorch Activation.cpp:
-//https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/Activation.cpp
+// PyTorch Activation.cpp:
+// https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/Activation.cpp
+// PyTorch Activation.h:
+// https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/Activation.h
 
 #ifndef ACTIVATIONS_HPP
 #define ACTIVATIONS_HPP
