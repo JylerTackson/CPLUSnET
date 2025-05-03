@@ -11,7 +11,9 @@ The code that we need to be reviewing to create our tensor class and our gradien
 
 - https://github.com/pytorch/pytorch/tree/main/aten/src
 
-1. AutoGrad Gradient Engine:
+### 1. AutoGrad Gradient Engine:
+
+##### PyTorch Code:
 
 - Core execution engine:
   - https://github.com/pytorch/pytorch/blob/main/torch/csrc/autograd/engine.h
@@ -20,51 +22,92 @@ The code that we need to be reviewing to create our tensor class and our gradien
   - https://github.com/pytorch/pytorch/blob/main/torch/csrc/autograd/variable.h
   - https://github.com/pytorch/pytorch/blob/main/torch/csrc/autograd/variable.cpp
 
-2. Tensor Implementation:
+### 2. Tensor Implementation:
 
-   - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/core/Tensor.h
-   - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/core/Tensor.cpp
+##### W3Schools:
 
-3. Loss Functions:
+- https://www.w3schools.com/ai/ai_tensors.asp
 
-   - Registered through native_functions.yaml. (No Header File)
-   - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/Loss.cpp
-   - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/LossNLL.cpp
+##### PyTorch Code:
 
-4. Activation Functions:
+The TensorImpl class is the actual defintion of the Tensor Object that is used within the PyTorch Engines (Raw data + metadata):
 
-   - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/Activation.h
-   - CPU:
-     - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/Activation.cpp
-   - CUDA:
-     - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/cuda/ActivationGeluKernel.cu
+- https://github.com/pytorch/pytorch/blob/main/c10/core/TensorImpl.h
+- https://github.com/pytorch/pytorch/blob/main/c10/core/TensorImpl.cpp
 
-5. Padding Operators:
+At the beginning of TensorImpl they create a NameSpace 'at' and declare two classes:
 
-   - Registered through native_functions.yaml. (No Header File)
-   - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/ReflectionPad.cpp
-   - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/ReplicationPadding.cpp
+- **TensorBase** - Line 82
 
-6. Pooling Operators:
+  - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/core/TensorBase.h
+    This class is an abstraction layer that contains a smart pointer to TensorImpl; Provides basic read/write APIs as well as operator overlaods.
 
-   - These kernels are registered through native_functions.yaml, so only .cpp files exist.
-   - https://github.com/pytorch/pytorch/blob/master/aten/src/ATen/native/Pooling.cpp
-   - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/AveragePool2d.cpp
+- Tensor - Line 92
+  - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/templates/TensorBody.h
+    This class is the public facing object and **inherits** from the TensorBase class; Gives the object a user interface to control the object.
 
-7. Convolution:
+These classes belong to the name space but are defined in seperate header files.
+The decleration in the namespace at the top of TensorImpl.h does not DEFINE the function it just DECLARES them to the compiler meanwhile the actual definition of the Tensor Classes happens within the corresponding header files.
 
-   - Registered through native_functions.yaml. (No Header File)
-   - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/Convolution.cpp
+- Supplemental:
+  - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/core/Tensor.h
+  - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/core/Tensor.cpp
 
-8. Linear:
+### 3. Loss Functions:
 
-   - https://github.com/pytorch/pytorch/blob/main/torch/csrc/api/include/torch/nn/modules/linear.h
-   - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/Linear.cpp
-   - https://github.com/pytorch/pytorch/blob/main/torch/csrc/api/src/nn/modules/linear.cpp
+##### PyTorch Code:
 
-9. Sequential:
-   - https://github.com/pytorch/pytorch/blob/main/torch/csrc/api/include/torch/nn/modules/container/sequential.h
-   - All Logic is inline within the header file. Allows for compile-time flexibility.
+- Registered through native_functions.yaml. (No Header File)
+- https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/Loss.cpp
+- https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/LossNLL.cpp
+
+### 4. Activation Functions:
+
+##### PyTorch Code:
+
+- https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/Activation.h
+- CPU:
+  - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/Activation.cpp
+- CUDA:
+  - https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/cuda/ActivationGeluKernel.cu
+
+### 5. Padding Operators:
+
+##### PyTorch Code:
+
+- Registered through native_functions.yaml. (No Header File)
+- https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/ReflectionPad.cpp
+- https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/ReplicationPadding.cpp
+
+### 6. Pooling Operators:
+
+##### PyTorch Code:
+
+- These kernels are registered through native_functions.yaml, so only .cpp files exist.
+- https://github.com/pytorch/pytorch/blob/master/aten/src/ATen/native/Pooling.cpp
+- https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/AveragePool2d.cpp
+
+### 7. Convolution:
+
+##### PyTorch Code:
+
+- Registered through native_functions.yaml. (No Header File)
+- https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/Convolution.cpp
+
+### 8. Linear:
+
+##### PyTorch Code:
+
+- https://github.com/pytorch/pytorch/blob/main/torch/csrc/api/include/torch/nn/modules/linear.h
+- https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/Linear.cpp
+- https://github.com/pytorch/pytorch/blob/main/torch/csrc/api/src/nn/modules/linear.cpp
+
+### 9. Sequential:
+
+##### PyTorch Code:
+
+- https://github.com/pytorch/pytorch/blob/main/torch/csrc/api/include/torch/nn/modules/container/sequential.h
+- All Logic is inline within the header file. Allows for compile-time flexibility.
 
 **What is a .yaml file?**
 
