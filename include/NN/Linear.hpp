@@ -1,8 +1,16 @@
-// PyTorch Linear.py:
+//Pytorch is built with C++14 standard version.
+//PyTorch uses Python as its primary interface, but it is built on top of C++ for performance reasons.
+//The core libraries and many of the underlying operations are implemented in C++ for efficiency.
+//The Python interface provides a more user-friendly way to interact with the library, while the C++ backend handles the heavy lifting.
+
+// PyTorch Linear Module:
 // https://github.com/pytorch/pytorch/blob/main/torch/nn/modules/linear.py
 
-#ifndef LAYER_HPP
-#define LAYER_HPP
+// PyTorch Linear.cpp:
+//https://github.com/pytorch/pytorch/blob/main/torch/csrc/api/src/nn/modules/linear.cpp
+
+#ifndef LINEAR_HPP
+#define LINEAR_HPP
 #include "./Base/TyNET.hpp"
 #include <array>
 #include <string>

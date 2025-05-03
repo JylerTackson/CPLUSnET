@@ -3,14 +3,16 @@
 //The core libraries and many of the underlying operations are implemented in C++ for efficiency.
 //The Python interface provides a more user-friendly way to interact with the library, while the C++ backend handles the heavy lifting.
 
-//PyTorch Padding Module:
-//https://github.com/pytorch/pytorch/blob/main/torch/nn/modules/padding.py
-
-//PyTorch Padding.cpp:
-
-#ifndef PADDING_HPP
-#define PADDING_HPP
+//PyTorch Tensor Module:
 
 
+//PyTorch Tensor.cpp:
+//https://github.com/pytorch/pytorch/blob/main/c10/core/TensorImpl.cpp
 
-#endif
+#ifndef Tensor_hpp
+#define Tensor_hpp
+
+
+
+
+#endif // Tensor_hpp

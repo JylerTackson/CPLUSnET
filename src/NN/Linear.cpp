@@ -1,6 +1,6 @@
 // File: Layer.cpp
 // inlcude the header file for Layer HeaderFile
-#include "./NN/Layer.hpp"
+#include "./NN/Linear.hpp"
 //include vector header for using standard vector class
 #include <vector>
 //include exception header for exception handling
