@@ -2,7 +2,6 @@
 
 #ifndef TyNET_HPP
 #define TyNET_HPP
-#include <Eigen/Dense>
 #include <iostream>
 
 // This class will be responsbile for connecting Netwrorks from the network class
