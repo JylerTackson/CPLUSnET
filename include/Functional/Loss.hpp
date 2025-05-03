@@ -1,3 +1,5 @@
+//PyTorch Loss.py:
+//https://github.com/pytorch/pytorch/blob/main/torch/nn/modules/loss.py
 #ifndef LOSS_HPP
 #define LOSS_HPP
 #include "./Base/TyNET.hpp"

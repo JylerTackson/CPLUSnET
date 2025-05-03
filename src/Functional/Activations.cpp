@@ -49,7 +49,7 @@ Eigen::VectorXd ForwardActivations::softmaxActivation(const Eigen::VectorXd &x)
 //------------------------------------------------------------------------
 
 // Derivative of the sigmoid function
-Eigen::VectorXd sigmoidDerivative(const Eigen::VectorXd &x)
+Eigen::VectorXd BackwardActivations::sigmoidDerivative(const Eigen::VectorXd &x)
 {
     // Derivative of sigmoid: sigmoid(x) * (1 - sigmoid(x))
     ForwardActivations forwardActivations;                         // create an instance of Forward Activations class
