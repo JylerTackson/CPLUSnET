@@ -7,6 +7,13 @@
 #ifndef DEVICE_HPP
 #define DEVICE_HPP
 
+#pragma once
+#include <bitset>
+// https://en.cppreference.com/w/cpp/header/bitset
+#include <cstdint>
+#include <string>
+#include <stdexcept>
+
 // This class will be used to manage the device that the tensor is on
 class Device
 {
@@ -15,16 +22,10 @@ public:
     ~Device();
 
 private:
-};
-
-// This class will be used to manage the dispatch keys for the device
-class DispatchKeySet
-{
-public:
-    DispatchKeySet();
-    ~DispatchKeySet();
-
-private:
+    // This Struct will keep track of the device for later use
+    struct DipatchKeySet
+    {
+    };
 };
 
 #endif // DEVICE_HPP
