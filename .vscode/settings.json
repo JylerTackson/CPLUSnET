@@ -82,6 +82,5 @@
         "xtr1common": "cpp",
         "xtree": "cpp",
         "xutility": "cpp"
-    },
-    "cmake.sourceDirectory": "C:/Users/Tyler Jackson/03-Projects/TyNET/thirdParty/eigen/eigen-3.4.0/unsupported/doc/examples"
+    }
 }
