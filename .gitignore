@@ -2,4 +2,4 @@
 build/
 
 # Ignore the thirdparty folder
-thirdparty/
+#thirdparty/
